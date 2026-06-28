@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallpaper Engine Project Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app">
+        <!-- 顶部工具栏 -->
+        <header class="toolbar">
+            <button id="btn-select-dir" class="primary">选择目录</button>
+            <span id="path-display" class="path-display">未选择目录</span>
+            <div class="spacer"></div>
+            <button id="btn-refresh" disabled>刷新</button>
+            <button id="btn-calc-all" disabled>统计大小</button>
+            <button id="btn-cancel-calc" class="hidden">取消统计</button>
+        </header>
+
+        <!-- 筛选栏 -->
+        <div class="filterbar">
+            <label>完整性:
+                <select id="filter-integrity">
+                    <option value="All">全部</option>
+                    <option value="Complete">完整</option>
+                    <option value="MissingResource">缺资源</option>
+                    <option value="Corrupt">损坏</option>
+                    <option value="NonWallpaper">非壁纸</option>
+                </select>
+            </label>
+            <label>类型:
+                <select id="filter-type">
+                    <option value="All">全部</option>
+                    <option value="Video">视频</option>
+                    <option value="Scene">场景</option>
+                    <option value="Web">网页</option>
+                    <option value="Application">应用</option>
+                    <option value="Package">打包</option>
+                    <option value="Unknown">未知</option>
+                    <option value="NonWallpaper">非壁纸</option>
+                </select>
+            </label>
+            <label>排序:
+                <select id="filter-sort">
+                    <option value="Title">标题</option>
+                    <option value="Type">类型</option>
+                    <option value="Size">大小</option>
+                    <option value="Integrity">完整性</option>
+                    <option value="DirectoryLastWrite">修改时间</option>
+                </select>
+            </label>
+            <label class="checkbox"><input type="checkbox" id="filter-desc">降序</label>
+            <label class="checkbox"><input type="checkbox" id="filter-deprecated">仅看废弃</label>
+            <input type="text" id="filter-search" placeholder="搜索标题/描述/ID" class="search-input">
+            <button id="btn-select-all">全选</button>
+            <button id="btn-invert">反选</button>
+            <button id="btn-clear">清空</button>
+        </div>
+
+        <!-- 主体三栏 -->
+        <main class="main">
+            <section class="col col-left" id="col-left">
+                <div class="col-body list-container" id="list-container">
+                    <div class="placeholder">请先选择 Workshop 目录</div>
+                </div>
+            </section>
+
+            <div class="splitter" data-target="left"></div>
+
+            <section class="col col-center">
+                <div class="col-body" id="center-body">
+                    <div class="placeholder">从左侧选择一项</div>
+                </div>
+            </section>
+
+            <div class="splitter" data-target="right"></div>
+
+            <section class="col col-right" id="col-right">
+                <div class="col-body" id="right-body">
+                    <div class="placeholder">从左侧选择一项</div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 底部状态栏 -->
+        <footer class="statusbar">
+            <span id="status-stats">共 0 项</span>
+            <span id="status-scan"></span>
+            <span id="status-selected"></span>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

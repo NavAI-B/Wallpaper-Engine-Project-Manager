@@ -1,0 +1,30 @@
+# 构建产物
+bin/
+obj/
+[Bb]uild/
+[Pp]ublish/
+
+# IDE / 编辑器
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# 日志
+*.log
+logs/
+
+# 运行时生成的配置与状态（用户本地数据，不应入库）
+config/state.json
+appsettings.json
+
+# 调试错误日志
+debug-error.log
+
+# 系统文件
+Thumbs.db
+desktop.ini
+.DS_Store

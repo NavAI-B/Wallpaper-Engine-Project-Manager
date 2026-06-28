@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>WallpaperEngineProjectManager</AssemblyName>
+    <RootNamespace>WallpaperEngineProjectManager</RootNamespace>
+    <Version>1.0.0</Version>
+    <Company>WEPM</Company>
+    <Product>Wallpaper Engine Project Manager</Product>
+    <!-- 绿色发布：单文件、自带运行时、压缩 -->
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Photino.NET" Version="2.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- wwwroot 复制到输出目录（Photino 用 Load("wwwroot/index.html") 加载） -->
+    <Content Include="wwwroot\**\*.*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>
